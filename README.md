@@ -1,8 +1,3 @@
-Thank you for providing access to your repository. Based on the available information, here's an updated **README.md** for your project:
-
----
-
-```markdown
 # pyAvExt
 
 **pyAvExt** is a Python-based tool designed to search for flight tickets using the Travelpayouts Aviasales Data API. It allows users to find round-trip flights from Moscow (MOW) to various destinations in Japan, including Tokyo (TYO), Nagoya (NGO), and Osaka (OSA), within specified date ranges and criteria.
