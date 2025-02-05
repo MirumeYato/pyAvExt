@@ -1,6 +1,14 @@
 # pyAvExt
 
-**pyAvExt** is a Python-based tool designed to search for flight tickets using the Travelpayouts Aviasales Data API. It allows users to find round-trip flights from Moscow (MOW) to various destinations in Japan, including Tokyo (TYO), Nagoya (NGO), and Osaka (OSA), within specified date ranges and criteria.
+**pyAvExt** (python Aviasales extension) is a Python-based tool designed to search for flight tickets using the Travelpayouts Aviasales Data API. It allows users to find round-trip flights from Moscow (MOW) to various destinations in Japan, including Tokyo (TYO), Nagoya (NGO), and Osaka (OSA), within specified date ranges and criteria.
+
+**Idea Behind This Script:**
+
+> I was searching for tickets for my trip to Japan when I found that most flight ticket services do not support Russian cities. Additionally, Aviasales is not very useful when searching for the best tickets if you have a lot of flexibility. My main goals were to visit Tokyo and Osaka (Kyoto), see the sakura blossoms, and have a trip duration close to two weeks. However, this required numerous searches on Aviasales.
+>
+> The issue arises with non-strictly fixed dates. Aviasales shows a calendar with prices for either any tickets or direct flights only. "Any" can result in more than two transfers, while "direct" doesn't work for me because there are no direct flights from Russia to Japan. If you also want to vary duration, cities, and transfers to find optimal tickets, it becomes an unrealistic task with such services.
+>
+> Therefore, I decided to conduct a custom search. Parsing tickets by myself caused too much trouble, so I found a free API and designed this small Python notebook.
 
 ## Features
 
