@@ -38,13 +38,13 @@ def build_multi_city_url(origin, dest1, dest2, dep_date, ret_date, sub_id):
 
 # Search parameters
 origin = "MOW"
-destinations = ["TYO", "OSA"]  # Tokyo, Nagoya, Osaka (IATA codes) , "NGO"
+destinations = ["TYO", "NGO", "OSA"]  # Tokyo, Nagoya, Osaka (IATA codes)
 min_duration = 10
 max_duration = 12
 
 # The window that must overlap with the trip (at least 2 days)
-window_start = datetime.date(2026, 7, 29)
-window_end = datetime.date(2026, 8, 5)
+window_start = datetime.date(2026, 8, 11)
+window_end = datetime.date(2026, 8, 11)
 window_end_plus = window_end + datetime.timedelta(days=1)  # for inclusive overlap
 
 # Range of possible departure dates 
@@ -59,12 +59,16 @@ for dest1 in destinations:
             for offset in range(days_range):
                 dep_date = start_departure + datetime.timedelta(days=offset)
                 ret_date = dep_date + datetime.timedelta(days=duration)
+
+                # Check not go beyond the end_departure
+                if ret_date > end_departure:
+                    break
                 
                 # Check overlap
                 overlap_start = max(dep_date, window_start)
                 overlap_end = min(ret_date, window_end_plus)
                 overlap_days = (overlap_end - overlap_start).days
-                if overlap_days >= 2:
+                if overlap_days >= 0:
                     url = build_multi_city_url(origin, dest1, dest2, dep_date, ret_date, SUBSCRIPTION_ID)
                     all_queries.append({
                         "url": url,
