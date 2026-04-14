@@ -3,6 +3,7 @@ import time
 import json
 import logging
 import os
+import configparser
 from tqdm import tqdm
 
 try:
@@ -13,7 +14,10 @@ except ImportError:
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
 
-SUBSCRIPTION_ID = "erg"
+# Load configuration
+config = configparser.ConfigParser()
+config.read(os.path.join(os.path.dirname(__file__), 'config.ini'))
+SUBSCRIPTION_ID = config.get('SETTINGS', 'SUBSCRIPTION_ID')
 
 def build_multi_city_url(origin, dest1, dest2, dep_date, ret_date, sub_id):
     """
